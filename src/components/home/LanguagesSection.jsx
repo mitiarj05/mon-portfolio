@@ -3,8 +3,8 @@ import { FaLanguage } from 'react-icons/fa';
 function LanguagesSection() {
   const languages = [
     { name: "Malgache", level: "Langue maternelle", proficiency: 100, flag: "🇲🇬" },
-    { name: "Français", level: "Courant", proficiency: 85, flag: "🇫🇷", certification: "DELF B2" },
-    { name: "Anglais", level: "Intermédiaire", proficiency: 65, flag: "🇬🇧", certification: "TOEIC en cours" }
+    { name: "Français", level: "Courant", proficiency: 85, flag: "🇫🇷" },
+    { name: "Anglais", level: "Intermédiaire", proficiency: 65, flag: "🇬🇧" }
   ];
 
   return (
@@ -25,9 +25,6 @@ function LanguagesSection() {
               <div className="language-flag">{lang.flag}</div>
               <h3>{lang.name}</h3>
               <p className="language-level">{lang.level}</p>
-              {lang.certification && (
-                <span className="language-cert">{lang.certification}</span>
-              )}
               <div className="language-progress">
                 <div 
                   className="language-progress-bar" 
