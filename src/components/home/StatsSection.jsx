@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { FaCode, FaProjectDiagram, FaGithub, FaGraduationCap } from 'react-icons/fa';
+import { FaCode, FaProjectDiagram, FaGithub, FaGraduationCap, FaBriefcase, FaLaptopCode } from 'react-icons/fa';
 import { projects } from '../../data/projects';
 
 function Counter({ end, duration = 2000, suffix = '' }) {
@@ -43,13 +43,15 @@ function Counter({ end, duration = 2000, suffix = '' }) {
 function StatsSection() {
   const totalProjects = projects.length;
   const totalTechs = [...new Set(projects.flatMap(p => p.tech))].length;
-  const totalStars = 25; // Estimation
+  const totalStars = 25;
 
   const stats = [
     { icon: <FaProjectDiagram />, value: totalProjects, label: "Projets réalisés", description: "Dont 4 complets sur GitHub", color: "#6366f1" },
     { icon: <FaCode />, value: totalTechs, label: "Technologies", description: "Java, JavaScript, C#, etc.", color: "#10b981" },
     { icon: <FaGithub />, value: totalStars, suffix: "+", label: "Stars GitHub", description: "Sur mes dépôts publics", color: "#f59e0b" },
-    { icon: <FaGraduationCap />, value: 3, label: "Années d'études", description: "Licence Informatique", color: "#ef4444" }
+    { icon: <FaGraduationCap />, value: 3, label: "Années d'études", description: "Licence Informatique", color: "#ef4444" },
+    { icon: <FaBriefcase />, value: 2, label: "Stages réalisés", description: "Expériences professionnelles", color: "#8b5cf6" },
+    { icon: <FaLaptopCode />, value: 10, suffix: "+", label: "Mois d'expérience", description: "En développement", color: "#06b6d4" }
   ];
 
   return (
@@ -62,13 +64,13 @@ function StatsSection() {
               <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="1.5"/>
               <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="1.5"/>
             </svg>
-            En chiffres
+            Mon parcours en chiffres
           </div>
           <h2>Mon parcours en <span className="gradient-text">chiffres</span></h2>
           <p>Ce que j'ai accompli durant ma formation</p>
         </div>
 
-        <div className="stats-grid">
+        <div className="stats-grid stats-grid-6">
           {stats.map((stat, index) => (
             <div key={index} className="stat-card">
               <div className="stat-icon" style={{ color: stat.color }}>

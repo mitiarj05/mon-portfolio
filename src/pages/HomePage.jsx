@@ -1,6 +1,7 @@
 import Hero from '../components/home/Hero';
 import AboutSection from '../components/home/AboutSection';
 import SkillsSection from '../components/home/SkillsSection';
+import CategorizedSkills from '../components/home/CategorizedSkills';
 import FeaturedProjects from '../components/home/FeaturedProjects';
 import EducationSection from '../components/home/EducationSection';
 import ServicesSection from '../components/home/ServicesSection';
@@ -20,7 +21,6 @@ function HomePage() {
         <Hero />
       </div>
       
-      {/* Phrase d'introduction professionnelle */}
       <div className="page-intro">
         <div className="container">
           <p className="intro-text">
@@ -38,6 +38,7 @@ function HomePage() {
       <StatsSection />
       
       <div id="stack">
+        <CategorizedSkills />  {/* Nouvelle section classée par catégorie */}
         <SkillsSection />
         <ToolsSection />
         <LanguagesSection />
