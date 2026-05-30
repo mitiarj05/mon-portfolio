@@ -1,13 +1,36 @@
 import { Link } from 'react-router-dom';
 import { projects } from '../../data/projects';
 import ProjectCard from '../projects/ProjectCard';
+import { useEffect, useRef, useState } from 'react';
 
 function FeaturedProjects() {
-  // Afficher tous les projets (pas de limite)
   const allProjects = projects;
+  const [visibleItems, setVisibleItems] = useState([]);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          const timeouts = [];
+          allProjects.forEach((_, index) => {
+            const timeout = setTimeout(() => {
+              setVisibleItems(prev => [...prev, index]);
+            }, index * 100);
+            timeouts.push(timeout);
+          });
+          return () => timeouts.forEach(t => clearTimeout(t));
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [allProjects]);
 
   return (
-    <section className="section">
+    <section className="section" ref={sectionRef}>
       <div className="container">
         <div className="section-header">
           <div className="section-tag">
@@ -27,9 +50,10 @@ function FeaturedProjects() {
             <div
               key={project.id}
               style={{
-                animation: 'fadeInUp 0.6s ease forwards',
-                animationDelay: `${index * 0.1}s`,
-                opacity: 0
+                opacity: visibleItems.includes(index) ? 1 : 0,
+                transform: visibleItems.includes(index) ? 'translateY(0)' : 'translateY(30px)',
+                transition: 'opacity 0.6s ease, transform 0.6s ease',
+                transitionDelay: `${index * 0.1}s`
               }}
             >
               <ProjectCard project={project} />

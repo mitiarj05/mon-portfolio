@@ -1,6 +1,6 @@
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { FaCode, FaMobileAlt, FaDatabase, FaLaptopCode, FaSearch, FaRocket } from 'react-icons/fa';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 function ServicesSection() {
   const { ref, isVisible } = useScrollAnimation();

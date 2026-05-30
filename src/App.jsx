@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { ThemeProvider } from './contexts/ThemeContext';
-// SUPPRIMEZ ProjectsProvider d'ici - il est déjà dans ProjectsPage
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
 import BackgroundAnimation from './components/BackgroundAnimation';
+import CustomCursor from './components/CustomCursor';
+import Loader from './components/common/Loader';
 import HomePage from './pages/HomePage';
 import ProjectsPage from './pages/ProjectsPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
@@ -16,8 +17,9 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <ThemeProvider>
-      {/* ProjectsProvider a été retiré d'ici */}
       <BrowserRouter>
+        <Loader />
+        <CustomCursor />
         <BackgroundAnimation />
         <Navbar />
         <Routes>
