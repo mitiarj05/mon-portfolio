@@ -16,7 +16,7 @@ function EducationSection() {
     },
     {
       degree: "Stage - Développeur",
-      school: "Entreprise (à préciser)",
+      school: "Entreprise à CODING.IO",
       period: "2025",
       location: "Madagascar",
       description: "Stage pratique en entreprise - Développement d'une application de gestion de bibliothèque",
