@@ -9,7 +9,7 @@ function EducationSection() {
       degree: "Licence 3 en Informatique",
       school: "Ecole Nationale d'Informatique (ENI)",
       period: "2023 - 2026",
-      location: "Madagascar",
+      location: "Fianarantsoa",
       description: "Parcours Développement Web et Logiciel",
       courses: ["Java", "Base de données", "Génie logiciel", "Développement web", "Algorithmique"]
     },
@@ -17,7 +17,7 @@ function EducationSection() {
       degree: "Baccalauréat Série Scientifique",
       school: "Lycée Privé Catholique Saint Paul Morondava",
       period: "2022 - 2023",
-      location: "Madagascar",
+      location: "Morondava",
       description: "Mention Assez Bien",
       courses: ["Mathématiques", "Physique", "SVT"]
     }

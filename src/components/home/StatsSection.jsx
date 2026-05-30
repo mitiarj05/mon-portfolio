@@ -50,8 +50,8 @@ function StatsSection() {
     { icon: <FaCode />, value: totalTechs, label: "Technologies", description: "Java, JavaScript, C#, etc.", color: "#10b981" },
     { icon: <FaGithub />, value: totalStars, suffix: "+", label: "Stars GitHub", description: "Sur mes dépôts publics", color: "#f59e0b" },
     { icon: <FaGraduationCap />, value: 3, label: "Années d'études", description: "Licence Informatique", color: "#ef4444" },
-    { icon: <FaBriefcase />, value: 2, label: "Stages réalisés", description: "Expériences professionnelles", color: "#8b5cf6" },
-    { icon: <FaLaptopCode />, value: 10, suffix: "+", label: "Mois d'expérience", description: "En développement", color: "#06b6d4" }
+    { icon: <FaBriefcase />, value: 1, label: "Stage réalisé", description: "Expérience professionnelle", color: "#8b5cf6" },
+    { icon: <FaLaptopCode />, value: 6, suffix: "+", label: "Mois d'expérience", description: "En développement", color: "#06b6d4" }
   ];
 
   return (

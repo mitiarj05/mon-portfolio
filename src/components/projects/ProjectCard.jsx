@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaGithub, FaArrowRight, FaCodeBranch, FaCheckCircle, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaArrowRight, FaCodeBranch, FaCheckCircle, FaExternalLinkAlt, FaBriefcase, FaGraduationCap } from 'react-icons/fa';
 import { useState } from 'react';
 import { getProjectIcon } from '../icons/ProjectIcons';
 
@@ -17,7 +17,13 @@ function ProjectCard({ project }) {
       <div className="project-glow" style={{ opacity: isHovered ? 1 : 0 }}></div>
       
       <div className="project-banner">
-        <span className="project-category-badge">{project.category || 'Projet'}</span>
+        <div className="project-banner-left">
+          <span className="project-category-badge">{project.category || 'Projet'}</span>
+          <span className={`project-type-badge ${project.type === 'Stage' ? 'stage' : 'academic'}`}>
+            {project.type === 'Stage' ? <FaBriefcase /> : <FaGraduationCap />}
+            {project.type || 'Académique'}
+          </span>
+        </div>
         <span className="project-year">{project.year || '2024'}</span>
       </div>
       

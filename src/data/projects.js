@@ -8,7 +8,8 @@ export const projects = [
     github: "https://github.com/mitiarj05/rdv_Medecin",
     demo: "https://rdv-medical-urrr.onrender.com",
     category: "Healthcare",
-    year: 2024,
+    type: "Académique",
+    year: 2026,
     features: [
       "Gestion des patients et médecins",
       "Prise de rendez-vous en ligne",
@@ -26,7 +27,8 @@ export const projects = [
     github: "https://github.com/mitiarj05/GestionBibliotheque",
     demo: null,
     category: "Education",
-    year: 2024,
+    type: "Stage",
+    year: 2025,
     features: [
       "Gestion des livres et catégories",
       "Gestion des membres",
@@ -44,7 +46,8 @@ export const projects = [
     github: "https://github.com/mitiarj05/gestion-conges",
     demo: "https://gestion-conges-frontend.onrender.com",
     category: "HR Tech",
-    year: 2025,
+    type: "Académique",
+    year: 2026,
     features: [
       "Demande de congés en ligne",
       "Workflow de validation",
@@ -62,6 +65,7 @@ export const projects = [
     github: "https://github.com/mitiarj05/VenteDeVetement",
     demo: null,
     category: "E-commerce",
+    type: "Académique",
     year: 2025,
     features: [
       "Catalogue de produits",
