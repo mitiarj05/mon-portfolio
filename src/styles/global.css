@@ -4544,3 +4544,163 @@ h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
   font-size: 1.4rem !important;
   letter-spacing: -0.5px !important;
 }
+/* ========== TYPOGRAPHIE AMÉLIORÉE ========== */
+
+/* Tailles de police de base - PLUS GRANDES */
+html {
+  font-size: 18px; /* Base plus grande (avant 16px) */
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.7; /* Plus d'espace entre les lignes */
+}
+
+/* Tailles des titres - PLUS GRANDS */
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  line-height: 1.3;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraphes - PLUS LISIBLES */
+p, .hero-description, .about-text p, .project-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Description dans le hero */
+.hero-description {
+  font-size: 1.05rem;
+  max-width: 550px;
+}
+
+/* Texte des badges */
+.hero-badge, .section-tag {
+  font-size: 0.85rem;
+  padding: 0.5rem 1.2rem;
+}
+
+/* Cartes de projet */
+.project-title-modern {
+  font-size: 1.2rem;
+}
+
+.project-description-modern {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Compétences */
+.skill-name {
+  font-size: 1rem;
+}
+
+.skill-level {
+  font-size: 0.8rem;
+}
+
+/* Services */
+.service-card h3 {
+  font-size: 1.2rem;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* À propos */
+.about-text h3 {
+  font-size: 1.6rem;
+}
+
+.about-bio {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Timeline - Formation */
+.timeline-header h3 {
+  font-size: 1.2rem;
+}
+
+.timeline-description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer-description {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.footer-links a, .footer-contact-item, .social-icon-link {
+  font-size: 0.85rem;
+}
+
+/* Responsive - Textes plus petits sur mobile */
+@media (max-width: 968px) {
+  html {
+    font-size: 16px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+  }
+  
+  .hero-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+  }
+}

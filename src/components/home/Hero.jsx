@@ -4,7 +4,7 @@ import { useTypingEffect } from '../../hooks/useTypingEffect';
 import { socialLinks } from '../../data/projects';
 
 function Hero() {
-  const roles = ["Étudiant en L3 Informatique", "", "Développeur Mobile", "Recherche Alternance"];
+  const roles = ["Développeur Web & Logiciel", "Créatif", "Passionné de code"];
   const typingText = useTypingEffect(roles, 100, 50, 2000);
 
   return (
@@ -13,7 +13,7 @@ function Hero() {
         <div className="hero-left">
           <div className="hero-badge">
             <FaGraduationCap />
-            Étudiant en L3 Informatique - 2025/2026
+            Étudiant en L3 Informatique - ENI Fianarantsoa
           </div>
           
           <h1>
@@ -26,19 +26,17 @@ function Hero() {
           </div>
           
           <div className="hero-description">
-            Passionné par le développement web et mobile, je suis à la recherche d'un stage ou d'une alternance 
-            pour mettre en pratique mes compétences et continuer à apprendre.
+            « Création et Innovation dans le Monde Numérique. » — Étudiant passionné, 
+            je code et je construis des solutions du web au mobile, avec rigueur et créativité.
           </div>
           
           <div className="hero-buttons">
             <Link to="/projets" className="btn btn-primary">
               Voir mes projets <FaArrowRight />
             </Link>
-            <button className="btn btn-outline" onClick={() => {
-              window.open('mailto:mitiarj05@gmail.com?subject=Demande%20de%20CV%20-%20Stage/Alternance');
-            }}>
-              <FaDownload /> Télécharger CV
-            </button>
+            <Link to="/contact" className="btn btn-outline">
+              Me contacter
+            </Link>
           </div>
           
           <div className="social-links">
