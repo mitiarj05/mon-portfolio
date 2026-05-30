@@ -60,7 +60,7 @@ function Hero() {
             <div className="hero-photo-frame"></div>
             <div className="hero-photo">
               <img 
-                src="/images/Mitia.png" 
+                src="/images/Mitia1.png" 
                 alt="RAJEMISON Nantenaina Mitia"
                 onError={(e) => {
                   e.target.src = "https://github.com/mitiarj05.png";

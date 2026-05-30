@@ -109,7 +109,7 @@ export const projects = [
     demo: null,
     category: "Automobile",
     type: "Académique",
-    year: 2025,
+    year: 2024,
     image: "/images/projects/voiture.png",
     features: [
       "Gestion des clients",
@@ -118,17 +118,41 @@ export const projects = [
       "Gestion des contrôleurs",
       "Statistiques des ventes"
     ]
+  },
+  {
+    id: 7,
+    title: "Portfolio - Site portfolio professionnel",
+    shortDesc: "Portfolio professionnel présentant mes compétences, projets et parcours.",
+    longDesc: "Site web portfolio développé avec React et Vite. Design moderne, responsive, avec animations et mode clair/sombre. Intégration de projets GitHub et déploiement sur Render.",
+    tech: ["React", "JavaScript", "CSS3", "Vite", "Render"],
+    github: "https://github.com/mitiarj05/mon-portfolio",
+    demo: "https://mon-portfolio-jr6.onrender.com",
+    category: "Portfolio",
+    type: "Personnel",
+    year: 2024,
+    image: "/images/projects/Mitia.png",
+    features: [
+      "Design moderne et responsive",
+      "Mode clair / sombre",
+      "Animations fluides",
+      "Intégration des projets GitHub",
+      "Formulaire de contact",
+      "Déploiement sur Render"
+    ]
   }
 ];
 
 export const skills = [
   { name: "Java", level: "Advanced", progress: 85, description: "JavaFX, Swing, JDBC" },
   { name: "JavaScript", level: "Intermediate", progress: 70, description: "ES6, Node.js, Express" },
+  { name: "Python", level: "Intermediate", progress: 65, description: "Django, Flask, Data Science" },
+  { name: "PHP", level: "Intermediate", progress: 60, description: "Laravel, MySQL" },
   { name: "Node.js", level: "Intermediate", progress: 65, description: "API REST, MongoDB" },
+  { name: "Vue.js", level: "Beginner", progress: 50, description: "Composition API, Vue Router" },
+  { name: "React", level: "Intermediate", progress: 65, description: "Hooks, Components" },
   { name: "MySQL", level: "Advanced", progress: 80, description: "Requêtes, JDBC" },
   { name: "MongoDB", level: "Intermediate", progress: 60, description: "Modélisation, Aggrégation" },
   { name: "Git", level: "Advanced", progress: 80, description: "GitHub, versioning" },
-  { name: "React", level: "Intermediate", progress: 65, description: "Hooks, Components" },
   { name: "Express", level: "Intermediate", progress: 60, description: "API, Middleware" },
   { name: "HTML/CSS", level: "Advanced", progress: 85, description: "Responsive, Flexbox" },
   { name: "C#", level: "Beginner", progress: 50, description: ".NET, SQL Server" },
@@ -138,8 +162,8 @@ export const skills = [
 export const contactInfo = {
   email: "mitiarj05@gmail.com",
   phone: [
-    { number: "0328725411", provider: "Telma" },
-    { number: "0389815487", provider: "Orange" }
+    { number: "0328725411", provider: "Orange" },
+    { number: "0389815487", provider: "Yas" }
   ],
   location: "Fianarantsoa, Madagascar"
 };

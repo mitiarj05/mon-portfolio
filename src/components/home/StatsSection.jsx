@@ -46,8 +46,8 @@ function StatsSection() {
   const totalStars = 25;
 
   const stats = [
-    { icon: <FaProjectDiagram />, value: totalProjects, label: "Projets réalisés", description: "Dont 4 complets sur GitHub", color: "#6366f1" },
-    { icon: <FaCode />, value: totalTechs, label: "Technologies", description: "Java, JavaScript, C#, etc.", color: "#10b981" },
+    { icon: <FaProjectDiagram />, value: totalProjects, label: "Projets réalisés", description: "Tous disponibles sur GitHub", color: "#6366f1" },
+    { icon: <FaCode />, value: totalTechs, label: "Technologies", description: "Java, JavaScript, Python, PHP, etc.", color: "#10b981" },
     { icon: <FaGithub />, value: totalStars, suffix: "+", label: "Stars GitHub", description: "Sur mes dépôts publics", color: "#f59e0b" },
     { icon: <FaGraduationCap />, value: 3, label: "Années d'études", description: "Licence Informatique", color: "#ef4444" },
     { icon: <FaBriefcase />, value: 1, label: "Stage réalisé", description: "Expérience professionnelle", color: "#8b5cf6" },

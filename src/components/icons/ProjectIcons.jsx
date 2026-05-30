@@ -32,6 +32,17 @@ export const EcommerceIcon = () => (
     <path d="M6 10h16" stroke="currentColor"/>
   </svg>
 );
+
+export const PortfolioIcon = () => (
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor"/>
+    <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor"/>
+    <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor"/>
+    <path d="M6 3v2" stroke="currentColor"/>
+    <path d="M18 3v2" stroke="currentColor"/>
+  </svg>
+);
+
 // Ajoutez cette icône pour la catégorie Automobile
 export const AutomobileIcon = () => (
   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -80,6 +91,8 @@ export const getProjectIcon = (category) => {
       return <HRIcon />;
     case 'E-commerce':
       return <EcommerceIcon />;
+     case 'Portfolio':
+      return <PortfolioIcon />;
      case 'Automobile':
       return <AutomobileIcon />;
     default:

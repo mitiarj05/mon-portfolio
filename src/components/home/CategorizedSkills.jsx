@@ -2,9 +2,9 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { 
   FaReact, FaNodeJs, FaDatabase, FaJava, FaJs, FaHtml5, 
   FaCss3Alt, FaGitAlt, FaCloud, FaCode, FaServer, FaDesktop,
-  FaWindows
+  FaWindows, FaPython, FaVuejs
 } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiMysql, SiSpringboot, SiCplusplus } from 'react-icons/si';
+import { SiMongodb, SiExpress, SiMysql, SiSpringboot, SiPhp } from 'react-icons/si';
 
 function CategorizedSkills() {
   const { ref, isVisible } = useScrollAnimation();
@@ -16,6 +16,7 @@ function CategorizedSkills() {
       color: "#3b82f6",
       skills: [
         { name: "React", level: "Intermédiaire", progress: 65, icon: <FaReact /> },
+        { name: "Vue.js", level: "Débutant", progress: 50, icon: <FaVuejs /> },
         { name: "JavaScript", level: "Intermédiaire", progress: 70, icon: <FaJs /> },
         { name: "HTML5/CSS3", level: "Avancé", progress: 85, icon: <FaHtml5 /> }
       ]
@@ -28,6 +29,8 @@ function CategorizedSkills() {
         { name: "Node.js", level: "Intermédiaire", progress: 65, icon: <FaNodeJs /> },
         { name: "Express.js", level: "Intermédiaire", progress: 60, icon: <SiExpress /> },
         { name: "Java", level: "Avancé", progress: 85, icon: <FaJava /> },
+        { name: "Python", level: "Intermédiaire", progress: 65, icon: <FaPython /> },
+        { name: "PHP", level: "Intermédiaire", progress: 60, icon: <SiPhp /> },
         { name: "Spring Boot", level: "Débutant", progress: 45, icon: <SiSpringboot /> }
       ]
     },

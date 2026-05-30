@@ -3,9 +3,9 @@ import { projects } from '../../data/projects';
 import ProjectCard from '../projects/ProjectCard';
 
 function FeaturedProjects() {
-  const allProjects = projects;
+  // Trier les projets par année (du plus récent au plus ancien)
+  const allProjects = [...projects].sort((a, b) => b.year - a.year);
 
-  // Afficher directement sans animation conditionnelle
   return (
     <section className="section">
       <div className="container">

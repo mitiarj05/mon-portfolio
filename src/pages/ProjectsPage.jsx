@@ -16,6 +16,9 @@ function ProjectsPage() {
   useEffect(() => {
     let filtered = [...allProjects];
     
+    // TRIER PAR ANNÉE (du plus récent au plus ancien)
+    filtered.sort((a, b) => b.year - a.year);
+    
     // Filtrer par technologie
     if (filter !== 'all') {
       filtered = filtered.filter(project =>
