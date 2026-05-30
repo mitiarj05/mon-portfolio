@@ -1,11 +1,13 @@
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../data/projects';
-import { FaGithub, FaArrowLeft, FaCalendar, FaTag, FaExternalLinkAlt, FaCheckCircle } from 'react-icons/fa';
+import { FaGithub, FaArrowLeft, FaCalendar, FaTag, FaExternalLinkAlt, FaCheckCircle, FaBriefcase, FaGraduationCap } from 'react-icons/fa';
 import { getProjectIcon } from '../components/icons/ProjectIcons';
+import { useState } from 'react';
 
 function ProjectDetailPage() {
   const { id } = useParams();
   const project = projects.find(p => p.id === parseInt(id));
+  const [imageError, setImageError] = useState(false);
 
   if (!project) {
     return (
@@ -19,7 +21,6 @@ function ProjectDetailPage() {
   return (
     <div style={{ paddingTop: '100px', minHeight: '100vh' }}>
       <div className="container">
-        {/* Phrase d'introduction professionnelle */}
         <div className="page-intro page-intro-detail">
           <p className="intro-text">
             Voici en détail le projet <strong>{project.title}</strong>. Découvrez les technologies utilisées,
@@ -32,23 +33,95 @@ function ProjectDetailPage() {
         </Link>
         
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
+          {/* Section Image du projet - AMÉLIORÉE */}
           <div>
             <div style={{ 
               background: 'var(--bg-secondary)', 
               borderRadius: 'var(--radius)', 
-              padding: '2rem', 
-              textAlign: 'center',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              minHeight: '300px'
+              overflow: 'hidden',
+              minHeight: '300px',
+              position: 'relative'
             }}>
-              <div style={{ width: '120px', height: '120px', background: 'rgba(99, 102, 241, 0.15)', borderRadius: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                {getProjectIcon(project.category)}
+              {!imageError && project.image ? (
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    minHeight: '300px',
+                    objectFit: 'cover',
+                    transition: 'transform 0.3s ease'
+                  }}
+                  onError={() => setImageError(true)}
+                />
+              ) : (
+                <div style={{ 
+                  width: '100%', 
+                  height: '300px', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05))'
+                }}>
+                  <div style={{ width: '120px', height: '120px', background: 'rgba(99, 102, 241, 0.15)', borderRadius: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    {getProjectIcon(project.category)}
+                  </div>
+                </div>
+              )}
+              
+              {/* Badges superposés */}
+              <div style={{
+                position: 'absolute',
+                top: '1rem',
+                left: '1rem',
+                display: 'flex',
+                gap: '0.5rem',
+                flexWrap: 'wrap'
+              }}>
+                <span style={{
+                  background: 'rgba(0,0,0,0.7)',
+                  backdropFilter: 'blur(4px)',
+                  padding: '0.3rem 0.8rem',
+                  borderRadius: '50px',
+                  fontSize: '0.75rem',
+                  color: '#6366f1'
+                }}>
+                  {project.category}
+                </span>
+                <span style={{
+                  background: 'rgba(0,0,0,0.7)',
+                  backdropFilter: 'blur(4px)',
+                  padding: '0.3rem 0.8rem',
+                  borderRadius: '50px',
+                  fontSize: '0.75rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.3rem',
+                  color: project.type === 'Stage' ? '#8b5cf6' : '#10b981'
+                }}>
+                  {project.type === 'Stage' ? <FaBriefcase /> : <FaGraduationCap />}
+                  {project.type || 'Académique'}
+                </span>
+              </div>
+              
+              <div style={{
+                position: 'absolute',
+                top: '1rem',
+                right: '1rem',
+                background: 'rgba(0,0,0,0.7)',
+                backdropFilter: 'blur(4px)',
+                padding: '0.3rem 0.8rem',
+                borderRadius: '50px',
+                fontSize: '0.75rem',
+                color: '#71717a'
+              }}>
+                {project.year}
               </div>
             </div>
           </div>
           
+          {/* Section Informations */}
           <div>
             <h1>{project.title}</h1>
             <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>

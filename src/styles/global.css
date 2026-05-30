@@ -4872,3 +4872,438 @@ p, .hero-description, .about-text p, .project-description {
   background: rgba(16, 185, 129, 0.2);
   color: #10b981;
 }
+
+/* Timeline améliorée */
+.timeline-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title h3 {
+  margin: 0;
+  color: var(--accent);
+}
+
+.timeline-status {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.timeline-status.ongoing {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.timeline-status.completed {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.timeline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.timeline-school {
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-description {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.timeline-courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.course-tag {
+  padding: 0.2rem 0.7rem;
+  background: rgba(99, 102, 241, 0.15);
+  border-radius: 50px;
+  font-size: 0.7rem;
+  color: var(--accent);
+  transition: all 0.3s;
+}
+
+.course-tag:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .timeline-meta {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}
+/* ========== IMAGES DES PROJETS ========== */
+.project-image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.08));
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card-modern:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-image-placeholder svg {
+  width: 60px;
+  height: 60px;
+  stroke: var(--accent);
+}
+
+.project-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+  padding: 0.8rem;
+}
+
+.project-image-overlay .project-banner {
+  background: transparent;
+  padding: 0;
+  border-bottom: none;
+}
+
+.project-image-overlay .project-category-badge,
+.project-image-overlay .project-year {
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+}
+/* ========== CORRECTION MODE CLAIR POUR PAGE PROJETS ========== */
+
+/* Mode clair - fond des cartes */
+[data-theme="light"] .projects-grid-modern,
+[data-theme="light"] .projects-section-modern,
+[data-theme="light"] section[style*="paddingTop: 100px"] {
+  background: var(--bg-primary);
+}
+
+[data-theme="light"] div[style*="background: rgba(18, 18, 24, 0.8)"] {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] div[style*="background: rgba(18, 18, 24, 0.8)"] h3 {
+  color: #1f2937 !important;
+}
+
+[data-theme="light"] div[style*="background: rgba(18, 18, 24, 0.8)"] p {
+  color: #4b5563 !important;
+}
+
+[data-theme="light"] .project-title-modern {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+[data-theme="light"] .project-description-modern {
+  color: #4b5563 !important;
+}
+
+[data-theme="light"] .tech-tag-modern {
+  background: rgba(79, 70, 229, 0.1) !important;
+  color: #4f46e5 !important;
+}
+
+[data-theme="light"] .tech-tag-modern:hover {
+  background: #4f46e5 !important;
+  color: white !important;
+}
+
+[data-theme="light"] .project-category-badge {
+  background: rgba(79, 70, 229, 0.15) !important;
+  color: #4f46e5 !important;
+}
+
+[data-theme="light"] .project-year {
+  color: #6b7280 !important;
+}
+
+[data-theme="light"] .project-stats .stat {
+  color: #6b7280 !important;
+}
+
+[data-theme="light"] .project-link-modern {
+  background: rgba(79, 70, 229, 0.1) !important;
+  color: #4f46e5 !important;
+}
+
+[data-theme="light"] .project-link-modern:hover {
+  background: #4f46e5 !important;
+  color: white !important;
+}
+
+[data-theme="light"] .github-link-modern {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #6b7280 !important;
+}
+
+[data-theme="light"] .github-link-modern:hover {
+  background: #1f2937 !important;
+  border-color: #1f2937 !important;
+  color: white !important;
+}
+
+[data-theme="light"] .demo-link-modern {
+  background: rgba(16, 185, 129, 0.1) !important;
+  border-color: rgba(16, 185, 129, 0.2) !important;
+  color: #059669 !important;
+}
+
+[data-theme="light"] .demo-link-modern:hover {
+  background: #059669 !important;
+  color: white !important;
+}
+
+/* Mode clair - filtres */
+[data-theme="light"] .filter-tab {
+  color: #4b5563 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .filter-tab:hover {
+  color: #1f2937 !important;
+  border-color: #4f46e5 !important;
+}
+
+[data-theme="light"] .filter-tab.active {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+  color: white !important;
+}
+
+[data-theme="light"] .search-container {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .search-input {
+  color: #1f2937 !important;
+}
+
+[data-theme="light"] .search-input::placeholder {
+  color: #9ca3af !important;
+}
+
+[data-theme="light"] .search-icon {
+  color: #6b7280 !important;
+}
+
+/* Mode clair - bandeau */
+[data-theme="light"] .project-banner {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .project-type-badge.stage {
+  background: rgba(139, 92, 246, 0.15) !important;
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .project-type-badge.academic {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #059669 !important;
+}
+
+/* Mode clair - stats page projets */
+[data-theme="light"] div[style*="background: rgba(18, 18, 24, 0.8)"] .stat-value {
+  color: #1f2937 !important;
+}
+
+[data-theme="light"] div[style*="background: rgba(18, 18, 24, 0.8)"] .stat-label {
+  color: #6b7280 !important;
+}
+
+[data-theme="light"] .hero-badge {
+  background: rgba(79, 70, 229, 0.1) !important;
+  color: #4f46e5 !important;
+}
+
+/* Mode clair - page d'accueil projets */
+[data-theme="light"] .projects-count {
+  color: #6b7280 !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .no-projects-message {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+/* Correction affichage année */
+.project-year {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  border-radius: 50px;
+  color: #a1a1aa;
+  display: inline-block;
+}
+
+[data-theme="light"] .project-year {
+  background: rgba(0, 0, 0, 0.08);
+  color: #6b7280;
+}
+/* ========== CORRECTION BANDEAU PROJET - LISIBILITÉ ========== */
+
+/* Styles généraux du bandeau */
+.project-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Badge catégorie */
+.project-category-badge {
+  padding: 0.3rem 0.9rem;
+  background: rgba(99, 102, 241, 0.85);
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white !important;
+  letter-spacing: 0.3px;
+}
+
+/* Badge type (Stage/Académique) */
+.project-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.project-type-badge.stage {
+  background: rgba(139, 92, 246, 0.9);
+  color: white !important;
+}
+
+.project-type-badge.academic {
+  background: rgba(16, 185, 129, 0.9);
+  color: white !important;
+}
+
+/* Badge année */
+.project-year {
+  padding: 0.3rem 0.9rem;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #e5e7eb !important;
+}
+
+/* Mode clair - adaptation */
+[data-theme="light"] .project-banner {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .project-category-badge {
+  background: rgba(79, 70, 229, 0.85);
+  color: white !important;
+}
+
+[data-theme="light"] .project-type-badge.stage {
+  background: rgba(139, 92, 246, 0.85);
+  color: white !important;
+}
+
+[data-theme="light"] .project-type-badge.academic {
+  background: rgba(16, 185, 129, 0.85);
+  color: white !important;
+}
+
+[data-theme="light"] .project-year {
+  background: rgba(0, 0, 0, 0.15);
+  color: #374151 !important;
+}
+
+/* Pour l'overlay sur l'image */
+.project-image-overlay .project-banner {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+}
+
+.project-image-overlay .project-category-badge,
+.project-image-overlay .project-type-badge,
+.project-image-overlay .project-year {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+[data-theme="light"] .project-image-overlay .project-category-badge,
+[data-theme="light"] .project-image-overlay .project-type-badge {
+  background: rgba(0, 0, 0, 0.7);
+  color: white !important;
+}
+
+[data-theme="light"] .project-image-overlay .project-year {
+  background: rgba(0, 0, 0, 0.7);
+  color: #e5e7eb !important;
+}

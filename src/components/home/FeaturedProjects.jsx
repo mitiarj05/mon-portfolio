@@ -3,7 +3,8 @@ import { projects } from '../../data/projects';
 import ProjectCard from '../projects/ProjectCard';
 
 function FeaturedProjects() {
-  const featured = projects.slice(0, 4);
+  // Afficher tous les projets (pas de limite)
+  const allProjects = projects;
 
   return (
     <section className="section">
@@ -18,11 +19,11 @@ function FeaturedProjects() {
             Portfolio
           </div>
           <h2>Mes <span className="gradient-text">projets</span></h2>
-          <p>Découvrez mes réalisations académiques et personnelles</p>
+          <p>Découvrez mes réalisations académiques, stages et projets collaboratifs</p>
         </div>
         
         <div className="projects-grid">
-          {featured.map((project, index) => (
+          {allProjects.map((project, index) => (
             <div
               key={project.id}
               style={{

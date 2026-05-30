@@ -27,7 +27,7 @@ function Hero() {
           
           <div className="hero-description">
             « Création et Innovation dans le Monde Numérique. » — Étudiant passionné, 
-            je code et je construis des solutions du web au mobile, avec rigueur et créativité.
+            je code et je construis des solutions du web au mobile & logiciel , avec rigueur et créativité.
           </div>
           
           <div className="hero-buttons">

@@ -1,12 +1,27 @@
 import { Link } from 'react-router-dom';
-import { FaGithub, FaArrowRight, FaCodeBranch, FaCheckCircle, FaExternalLinkAlt, FaBriefcase, FaGraduationCap } from 'react-icons/fa';
+import { FaGithub, FaArrowRight, FaCodeBranch, FaCheckCircle, FaExternalLinkAlt, FaBriefcase, FaGraduationCap, FaUsers } from 'react-icons/fa';
 import { useState } from 'react';
 import { getProjectIcon } from '../icons/ProjectIcons';
 
 function ProjectCard({ project }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   if (!project) return null;
+
+  // Fonction pour obtenir le style du badge type
+  const getTypeBadgeStyle = (type) => {
+    switch (type) {
+      case 'Stage':
+        return { background: '#8b5cf6', icon: <FaBriefcase />, label: 'Stage' };
+      case 'Collaboratif':
+        return { background: '#f59e0b', icon: <FaUsers />, label: 'Collaboratif' };
+      default:
+        return { background: '#10b981', icon: <FaGraduationCap />, label: 'Académique' };
+    }
+  };
+
+  const typeStyle = getTypeBadgeStyle(project.type);
 
   return (
     <div 
@@ -16,20 +31,31 @@ function ProjectCard({ project }) {
     >
       <div className="project-glow" style={{ opacity: isHovered ? 1 : 0 }}></div>
       
-      <div className="project-banner">
-        <div className="project-banner-left">
-          <span className="project-category-badge">{project.category || 'Projet'}</span>
-          <span className={`project-type-badge ${project.type === 'Stage' ? 'stage' : 'academic'}`}>
-            {project.type === 'Stage' ? <FaBriefcase /> : <FaGraduationCap />}
-            {project.type || 'Académique'}
-          </span>
-        </div>
-        <span className="project-year">{project.year || '2024'}</span>
-      </div>
-      
-      <div className="project-icon-modern">
-        <div className="icon-pulse" style={{ transform: isHovered ? 'scale(1.1)' : 'scale(1)' }}>
-          {getProjectIcon(project.category)}
+      {/* Image du projet */}
+      <div className="project-image-container">
+        {!imageError && project.image ? (
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="project-image"
+            onError={() => setImageError(true)}
+          />
+        ) : (
+          <div className="project-image-placeholder">
+            {getProjectIcon(project.category)}
+          </div>
+        )}
+        <div className="project-image-overlay">
+          <div className="project-banner">
+            <div className="project-banner-left">
+              <span className="project-category-badge">{project.category || 'Projet'}</span>
+              <span className="project-type-badge" style={{ background: typeStyle.background }}>
+                {typeStyle.icon}
+                {typeStyle.label}
+              </span>
+            </div>
+            <span className="project-year">{project.year || '2024'}</span>
+          </div>
         </div>
       </div>
       
@@ -38,7 +64,7 @@ function ProjectCard({ project }) {
         <p className="project-description-modern">{project.shortDesc}</p>
         
         <div className="project-tech-modern">
-          {project.tech && project.tech.map((tech, i) => (
+          {project.tech && project.tech.slice(0, 4).map((tech, i) => (
             <span key={i} className="tech-tag-modern">
               {tech}
             </span>
