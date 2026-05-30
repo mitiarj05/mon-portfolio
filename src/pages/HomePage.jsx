@@ -8,7 +8,7 @@ import StatsSection from '../components/home/StatsSection';
 import ToolsSection from '../components/home/ToolsSection';
 import LanguagesSection from '../components/home/LanguagesSection';
 import GoalsSection from '../components/home/GoalsSection';
-import CertificationsSection from '../components/home/CertificationsSection';
+// import CertificationsSection from '../components/home/CertificationsSection'; // COMMENTÉ - Pas encore de certifications
 import InterestsSection from '../components/home/InterestsSection';
 import SocialLinksSection from '../components/home/SocialLinksSection';
 import ContactCTA from '../components/home/ContactCTA';
@@ -37,7 +37,7 @@ function HomePage() {
       <StatsSection />
       
       <div id="stack">
-        <CategorizedSkills />  {/* Nouvelle section classée par catégorie */}
+        <CategorizedSkills />
         <ToolsSection />
         <LanguagesSection />
       </div>
@@ -49,7 +49,7 @@ function HomePage() {
       <div id="parcours">
         <EducationSection />
         <GoalsSection />
-        <CertificationsSection />
+        {/* <CertificationsSection /> */} {/* COMMENTÉ - En attente de certifications */}
       </div>
       
       <div id="services">
