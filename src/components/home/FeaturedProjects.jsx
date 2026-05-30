@@ -1,36 +1,13 @@
 import { Link } from 'react-router-dom';
 import { projects } from '../../data/projects';
 import ProjectCard from '../projects/ProjectCard';
-import { useEffect, useRef, useState } from 'react';
 
 function FeaturedProjects() {
   const allProjects = projects;
-  const [visibleItems, setVisibleItems] = useState([]);
-  const sectionRef = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          const timeouts = [];
-          allProjects.forEach((_, index) => {
-            const timeout = setTimeout(() => {
-              setVisibleItems(prev => [...prev, index]);
-            }, index * 100);
-            timeouts.push(timeout);
-          });
-          return () => timeouts.forEach(t => clearTimeout(t));
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, [allProjects]);
-
+  // Afficher directement sans animation conditionnelle
   return (
-    <section className="section" ref={sectionRef}>
+    <section className="section">
       <div className="container">
         <div className="section-header">
           <div className="section-tag">
@@ -46,16 +23,8 @@ function FeaturedProjects() {
         </div>
         
         <div className="projects-grid">
-          {allProjects.map((project, index) => (
-            <div
-              key={project.id}
-              style={{
-                opacity: visibleItems.includes(index) ? 1 : 0,
-                transform: visibleItems.includes(index) ? 'translateY(0)' : 'translateY(30px)',
-                transition: 'opacity 0.6s ease, transform 0.6s ease',
-                transitionDelay: `${index * 0.1}s`
-              }}
-            >
+          {allProjects.map((project) => (
+            <div key={project.id} style={{ display: 'block' }}>
               <ProjectCard project={project} />
             </div>
           ))}

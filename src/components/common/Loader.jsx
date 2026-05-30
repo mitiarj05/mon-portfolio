@@ -21,14 +21,14 @@ function Loader() {
           <div className="spinner-ring"></div>
         </div>
         <div className="loader-text">
-          <span>M</span>
-          <span>i</span>
-          <span>t</span>
-          <span>i</span>
-          <span>a</span>
+          <span>L</span>
+          <span>O</span>
+          <span>A</span>
+          <span>D</span>
+          <span>I</span>
           <span className="space"> </span>
-          <span>R</span>
-          <span>J</span>
+          <span>N</span>
+          <span>G</span>
         </div>
       </div>
     </div>

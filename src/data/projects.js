@@ -70,7 +70,7 @@ export const projects = [
     category: "E-commerce",
     type: "Académique",
     year: 2025,
-    //image: "/images/projects/vente-vetement.png",
+    image: "/images/projects/vente-vetement.png",
     features: [
       "Catalogue de produits",
       "Panier d'achat",
@@ -110,7 +110,7 @@ export const projects = [
     category: "Automobile",
     type: "Académique",
     year: 2025,
-    //image: "/images/projects/voiture.png",
+    image: "/images/projects/voiture.png",
     features: [
       "Gestion des clients",
       "Gestion des véhicules",

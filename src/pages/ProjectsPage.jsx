@@ -10,17 +10,20 @@ function ProjectsPage() {
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [imageErrors, setImageErrors] = useState({});
 
+  // Récupérer toutes les technologies uniques
   const allTechs = ['all', ...new Set(allProjects.flatMap(p => p.tech))];
 
   useEffect(() => {
     let filtered = [...allProjects];
     
+    // Filtrer par technologie
     if (filter !== 'all') {
       filtered = filtered.filter(project =>
         project.tech.some(tech => tech === filter)
       );
     }
     
+    // Filtrer par recherche
     if (searchTerm.trim() !== '') {
       const term = searchTerm.toLowerCase();
       filtered = filtered.filter(project =>
@@ -49,9 +52,22 @@ function ProjectsPage() {
     setImageErrors(prev => ({ ...prev, [projectId]: true }));
   };
 
+  // Fonction pour obtenir le style du badge type
+  const getTypeBadgeStyle = (type) => {
+    switch (type) {
+      case 'Stage':
+        return { background: '#8b5cf6', icon: <FaBriefcase />, label: 'Stage' };
+      case 'Collaboratif':
+        return { background: '#f59e0b', icon: <FaUsers />, label: 'Collaboratif' };
+      default:
+        return { background: '#10b981', icon: <FaGraduationCap />, label: 'Académique' };
+    }
+  };
+
   return (
     <section style={{ paddingTop: '100px', minHeight: '100vh', paddingBottom: '4rem' }}>
       <div className="container">
+        {/* Phrase d'introduction */}
         <div className="page-intro">
           <p className="intro-text">
             Découvrez l'ensemble de mes réalisations académiques et personnelles. Chaque projet 
@@ -60,6 +76,7 @@ function ProjectsPage() {
           </p>
         </div>
 
+        {/* Hero section */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <span style={{
             display: 'inline-block',
@@ -81,6 +98,7 @@ function ProjectsPage() {
           </p>
         </div>
 
+        {/* Statistiques */}
         <div className="projects-stats-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
@@ -107,6 +125,7 @@ function ProjectsPage() {
           ))}
         </div>
 
+        {/* Filtres */}
         <div style={{ marginBottom: '3rem' }}>
           <div style={{
             display: 'flex',
@@ -137,6 +156,7 @@ function ProjectsPage() {
             ))}
           </div>
 
+          {/* Barre de recherche */}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div style={{
               display: 'flex',
@@ -181,6 +201,7 @@ function ProjectsPage() {
           </div>
         </div>
 
+        {/* Résultats */}
         {filteredProjects.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '4rem', background: 'var(--bg-card)', borderRadius: '1rem', border: '1px solid var(--border)' }}>
             <FaSearch size={48} style={{ color: 'var(--text-muted)', marginBottom: '1rem' }} />
@@ -211,222 +232,219 @@ function ProjectsPage() {
               gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))',
               gap: '2rem'
             }}>
-              {filteredProjects.map(project => (
-                <div key={project.id} className="project-card-modern" style={{
-                  background: 'var(--bg-card)',
-                  backdropFilter: 'blur(16px)',
-                  border: '1px solid var(--border)',
-                  borderRadius: '1.5rem',
-                  overflow: 'hidden',
-                  transition: 'all 0.3s',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px)';
-                  e.currentTarget.style.borderColor = '#6366f1';
-                  e.currentTarget.style.boxShadow = '0 0 30px rgba(99, 102, 241, 0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = 'var(--border)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}>
-                  {/* IMAGE DU PROJET */}
-                  <div style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: '200px',
+              {filteredProjects.map(project => {
+                const typeStyle = getTypeBadgeStyle(project.type);
+                return (
+                  <div key={project.id} className="project-card-modern" style={{
+                    background: 'var(--bg-card)',
+                    backdropFilter: 'blur(16px)',
+                    border: '1px solid var(--border)',
+                    borderRadius: '1.5rem',
                     overflow: 'hidden',
-                    background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.08))'
+                    transition: 'all 0.3s',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-8px)';
+                    e.currentTarget.style.borderColor = '#6366f1';
+                    e.currentTarget.style.boxShadow = '0 0 30px rgba(99, 102, 241, 0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = 'var(--border)';
+                    e.currentTarget.style.boxShadow = 'none';
                   }}>
-                    {!imageErrors[project.id] && project.image ? (
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        style={{
+                    {/* IMAGE DU PROJET */}
+                    <div style={{
+                      position: 'relative',
+                      width: '100%',
+                      height: '200px',
+                      overflow: 'hidden',
+                      background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.08))'
+                    }}>
+                      {!imageErrors[project.id] && project.image ? (
+                        <img 
+                          src={project.image} 
+                          alt={project.title}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            transition: 'transform 0.5s ease'
+                          }}
+                          onError={() => handleImageError(project.id)}
+                        />
+                      ) : (
+                        <div style={{
                           width: '100%',
                           height: '100%',
-                          objectFit: 'cover',
-                          transition: 'transform 0.5s ease'
-                        }}
-                        onError={() => handleImageError(project.id)}
-                      />
-                    ) : (
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}>
+                          {getProjectIcon(project.category)}
+                        </div>
+                      )}
+                      
+                      {/* BADGES */}
                       <div style={{
-                        width: '100%',
-                        height: '100%',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        background: 'linear-gradient(to bottom, rgba(0,0,0,0.6), transparent)',
+                        padding: '12px 16px',
                         display: 'flex',
+                        justifyContent: 'space-between',
                         alignItems: 'center',
-                        justifyContent: 'center'
+                        flexWrap: 'wrap',
+                        gap: '8px'
                       }}>
-                        {getProjectIcon(project.category)}
-                      </div>
-                    )}
-                    
-                    {/* BADGES CORRIGÉS - COULEURS LISIBLES */}
-                    <div style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      background: 'linear-gradient(to bottom, rgba(0,0,0,0.6), transparent)',
-                      padding: '12px 16px',
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      flexWrap: 'wrap',
-                      gap: '8px'
-                    }}>
-                      {/* Groupe de badges à gauche */}
-                      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                        {/* Badge Catégorie */}
+                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                          <span style={{
+                            padding: '4px 12px',
+                            background: '#6366f1',
+                            borderRadius: '20px',
+                            fontSize: '11px',
+                            fontWeight: '600',
+                            color: 'white',
+                            letterSpacing: '0.3px',
+                            boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
+                          }}>
+                            {project.category || 'Projet'}
+                          </span>
+                          <span style={{
+                            padding: '4px 12px',
+                            background: typeStyle.background,
+                            borderRadius: '20px',
+                            fontSize: '11px',
+                            fontWeight: '600',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px',
+                            color: 'white',
+                            boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
+                          }}>
+                            {typeStyle.icon}
+                            {typeStyle.label}
+                          </span>
+                        </div>
                         <span style={{
                           padding: '4px 12px',
-                          background: '#6366f1',
+                          background: 'rgba(0, 0, 0, 0.75)',
                           borderRadius: '20px',
                           fontSize: '11px',
                           fontWeight: '600',
-                          color: 'white',
-                          letterSpacing: '0.3px',
+                          color: '#f0f0f0',
                           boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
                         }}>
-                          {project.category || 'Projet'}
+                          {project.year || '2024'}
                         </span>
-                        
-                        {/* Badge Type */}
-                        <span style={{
-                          padding: '4px 12px',
-                          background: project.type === 'Stage' ? '#8b5cf6' : '#10b981',
-                          borderRadius: '20px',
-                          fontSize: '11px',
-                          fontWeight: '600',
+                      </div>
+                    </div>
+
+                    {/* Contenu de la carte */}
+                    <div style={{ padding: '20px' }}>
+                      <h3 style={{
+                        fontSize: '1.1rem',
+                        marginBottom: '8px',
+                        fontWeight: '700',
+                        background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+                        WebkitBackgroundClip: 'text',
+                        backgroundClip: 'text',
+                        color: 'transparent'
+                      }}>
+                        {project.title}
+                      </h3>
+                      <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '16px', lineHeight: '1.5' }}>
+                        {project.shortDesc}
+                      </p>
+
+                      {/* Technologies */}
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
+                        {project.tech.slice(0, 4).map((tech, i) => (
+                          <span key={i} style={{
+                            padding: '4px 10px',
+                            background: 'rgba(99, 102, 241, 0.12)',
+                            borderRadius: '20px',
+                            fontSize: '11px',
+                            fontWeight: '500',
+                            color: '#6366f1'
+                          }}>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Stats du projet */}
+                      <div style={{ display: 'flex', gap: '16px', marginBottom: '16px', paddingBottom: '8px', borderBottom: '1px solid var(--border)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-muted)' }}>
+                          <FaGithub size={12} /> <span>Public</span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-muted)' }}>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                          </svg>
+                          <span>Terminé</span>
+                        </div>
+                      </div>
+
+                      {/* Liens d'action */}
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
+                        <Link to={`/projet/${project.id}`} style={{
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: '4px',
-                          color: 'white',
-                          boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
-                        }}>
-                          {project.type === 'Stage' ? <FaBriefcase size={10} /> : <FaGraduationCap size={10} />}
-                          {project.type || 'Académique'}
-                        </span>
-                      </div>
-                      
-                      {/* Badge Année à droite */}
-                      <span style={{
-                        padding: '4px 12px',
-                        background: 'rgba(0, 0, 0, 0.75)',
-                        borderRadius: '20px',
-                        fontSize: '11px',
-                        fontWeight: '600',
-                        color: '#f0f0f0',
-                        boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
-                      }}>
-                        {project.year || '2024'}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Contenu de la carte */}
-                  <div style={{ padding: '20px' }}>
-                    <h3 style={{
-                      fontSize: '1.1rem',
-                      marginBottom: '8px',
-                      fontWeight: '700',
-                      background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                      WebkitBackgroundClip: 'text',
-                      backgroundClip: 'text',
-                      color: 'transparent'
-                    }}>
-                      {project.title}
-                    </h3>
-                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '16px', lineHeight: '1.5' }}>
-                      {project.shortDesc}
-                    </p>
-
-                    {/* Technologies */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
-                      {project.tech.slice(0, 4).map((tech, i) => (
-                        <span key={i} style={{
-                          padding: '4px 10px',
-                          background: 'rgba(99, 102, 241, 0.12)',
-                          borderRadius: '20px',
-                          fontSize: '11px',
+                          gap: '8px',
+                          padding: '6px 14px',
+                          background: 'rgba(99, 102, 241, 0.1)',
+                          borderRadius: '30px',
+                          color: '#6366f1',
+                          textDecoration: 'none',
+                          fontSize: '0.8rem',
                           fontWeight: '500',
-                          color: '#6366f1'
+                          transition: 'all 0.3s'
                         }}>
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Stats du projet */}
-                    <div style={{ display: 'flex', gap: '16px', marginBottom: '16px', paddingBottom: '8px', borderBottom: '1px solid var(--border)' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-muted)' }}>
-                        <FaGithub size={12} /> <span>Public</span>
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-muted)' }}>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>Terminé</span>
-                      </div>
-                    </div>
-
-                    {/* Liens d'action */}
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
-                      <Link to={`/projet/${project.id}`} style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        padding: '6px 14px',
-                        background: 'rgba(99, 102, 241, 0.1)',
-                        borderRadius: '30px',
-                        color: '#6366f1',
-                        textDecoration: 'none',
-                        fontSize: '0.8rem',
-                        fontWeight: '500',
-                        transition: 'all 0.3s'
-                      }}>
-                        Détails <FaArrowRight size={11} />
-                      </Link>
-                      <div style={{ display: 'flex', gap: '8px' }}>
-                        {project.demo && (
-                          <a href={project.demo} target="_blank" rel="noopener noreferrer" style={{
+                          Détails <FaArrowRight size={11} />
+                        </Link>
+                        <div style={{ display: 'flex', gap: '8px' }}>
+                          {project.demo && (
+                            <a href={project.demo} target="_blank" rel="noopener noreferrer" style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '6px',
+                              padding: '6px 12px',
+                              background: 'transparent',
+                              border: '1px solid rgba(16, 185, 129, 0.3)',
+                              borderRadius: '30px',
+                              color: '#10b981',
+                              textDecoration: 'none',
+                              fontSize: '0.75rem',
+                              transition: 'all 0.3s'
+                            }}>
+                              <FaExternalLinkAlt size={10} /> Démo
+                            </a>
+                          )}
+                          <a href={project.github} target="_blank" rel="noopener noreferrer" style={{
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '6px',
                             padding: '6px 12px',
                             background: 'transparent',
-                            border: '1px solid rgba(16, 185, 129, 0.3)',
+                            border: '1px solid var(--border)',
                             borderRadius: '30px',
-                            color: '#10b981',
+                            color: 'var(--text-secondary)',
                             textDecoration: 'none',
                             fontSize: '0.75rem',
                             transition: 'all 0.3s'
                           }}>
-                            <FaExternalLinkAlt size={10} /> Démo
+                            <FaGithub size={11} /> Code
                           </a>
-                        )}
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '6px',
-                          padding: '6px 12px',
-                          background: 'transparent',
-                          border: '1px solid var(--border)',
-                          borderRadius: '30px',
-                          color: 'var(--text-secondary)',
-                          textDecoration: 'none',
-                          fontSize: '0.75rem',
-                          transition: 'all 0.3s'
-                        }}>
-                          <FaGithub size={11} /> Code
-                        </a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </>
         )}
