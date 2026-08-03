@@ -146,7 +146,7 @@ export const projects = [
     shortDesc: "Application mobile de reconnaissance d'écriture manuscrite pour la résolution d'équations mathématiques.",
     longDesc: "Application mobile développée avec Flutter permettant de photographier ou dessiner une équation manuscrite et d'en obtenir la résolution. Backend NestJS pour le traitement des requêtes et Supabase pour la gestion des données utilisateurs.",
     tech: ["Flutter", "NestJS", "Supabase"],
-    github: "https://github.com/mitiarj05/campoignon",
+    github: "https://github.com/mitiarj05",
     demo: null,
     category: "Mobile",
     type: "Personnel",
@@ -158,6 +158,26 @@ export const projects = [
       "Application mobile cross-platform (Flutter)",
       "API backend avec NestJS",
       "Authentification et stockage via Supabase"
+    ]
+  },
+  {
+    id: 9,
+    title: "CampOignon - Anti-Abandon & Transmission",
+    shortDesc: "Plateforme web luttant contre l'abandon de projets étudiants et facilitant le partage de code, développée lors d'un DevHunt.",
+    longDesc: "Projet réalisé en équipe lors d'un DevHunt (compétition) sur le thème \"Anti-Abandon & Transmission\". CampOignon est une plateforme web qui aide les étudiants à retrouver, documenter et transmettre leurs projets de code entre promotions, afin d'éviter que le travail effectué ne soit perdu ou abandonné.",
+    tech: ["Next.js", "React", "Node.js", "Tailwind"],
+    github: "https://github.com/mitiarj05/campoignon",
+    demo: null,
+    category: "Education",
+    type: "Compétition",
+    year: 2026,
+    image: "/images/projects/campoignon.png",
+    features: [
+      "Partage et découverte de projets étudiants",
+      "Documentation et transmission du code entre promotions",
+      "Détection des projets à risque d'abandon",
+      "Interface collaborative en équipe",
+      "Recherche et filtrage par technologie"
     ]
   }
 ];

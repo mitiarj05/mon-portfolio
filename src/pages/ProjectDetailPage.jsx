@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../data/projects';
-import { FaGithub, FaArrowLeft, FaCalendar, FaTag, FaExternalLinkAlt, FaCheckCircle, FaBriefcase, FaGraduationCap } from 'react-icons/fa';
+import { FaGithub, FaArrowLeft, FaCalendar, FaTag, FaExternalLinkAlt, FaCheckCircle, FaBriefcase, FaGraduationCap, FaTrophy } from 'react-icons/fa';
 import { getProjectIcon } from '../components/icons/ProjectIcons';
 import { useState } from 'react';
 
@@ -98,9 +98,9 @@ function ProjectDetailPage() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.3rem',
-                  color: project.type === 'Stage' ? '#8b5cf6' : '#10b981'
+                  color: project.type === 'Stage' ? '#8b5cf6' : project.type === 'Compétition' ? '#ec4899' : '#10b981'
                 }}>
-                  {project.type === 'Stage' ? <FaBriefcase /> : <FaGraduationCap />}
+                  {project.type === 'Stage' ? <FaBriefcase /> : project.type === 'Compétition' ? <FaTrophy /> : <FaGraduationCap />}
                   {project.type || 'Académique'}
                 </span>
               </div>

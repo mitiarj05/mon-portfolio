@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaGithub, FaArrowRight, FaCodeBranch, FaCheckCircle, FaExternalLinkAlt, FaBriefcase, FaGraduationCap, FaUsers } from 'react-icons/fa';
+import { FaGithub, FaArrowRight, FaCodeBranch, FaCheckCircle, FaExternalLinkAlt, FaBriefcase, FaGraduationCap, FaUsers, FaTrophy } from 'react-icons/fa';
 import { useState } from 'react';
 import { getProjectIcon } from '../icons/ProjectIcons';
 
@@ -16,6 +16,8 @@ function ProjectCard({ project }) {
         return { background: '#8b5cf6', icon: <FaBriefcase />, label: 'Stage' };
       case 'Collaboratif':
         return { background: '#f59e0b', icon: <FaUsers />, label: 'Collaboratif' };
+      case 'Compétition':
+        return { background: '#ec4899', icon: <FaTrophy />, label: 'Compétition' };
       default:
         return { background: '#10b981', icon: <FaGraduationCap />, label: 'Académique' };
     }
