@@ -4,7 +4,7 @@ import { useTypingEffect } from '../../hooks/useTypingEffect';
 import { socialLinks } from '../../data/projects';
 
 function Hero() {
-  const roles = ["Web & Mobile", "Créatif", "Passionné de code"];
+  const roles = ["Développeur Web & Mobile", "Créatif", "Passionné de code"];
   const typingText = useTypingEffect(roles, 100, 50, 2000);
 
   return (
