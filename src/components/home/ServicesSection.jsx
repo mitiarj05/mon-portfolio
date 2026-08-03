@@ -33,7 +33,7 @@ function ServicesSection() {
     {
       icon: <FaDatabase />,
       title: "Base de données",
-      description: "Conception et gestion de bases de données MySQL, PostgreSQL et MongoDB."
+      description: "Conception et gestion de bases de données MySQL, PostgreSQL, MongoDB et Supabase."
     },
     {
       icon: <FaLaptopCode />,

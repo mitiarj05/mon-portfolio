@@ -4,7 +4,7 @@ import {
   FaCss3Alt, FaGitAlt, FaCloud, FaCode, FaServer, FaDesktop,
   FaWindows, FaPython, FaVuejs, FaAndroid
 } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiMysql, SiSpringboot, SiPhp, SiFlutter, SiKotlin } from 'react-icons/si';
+import { SiMongodb, SiExpress, SiMysql, SiSpringboot, SiPhp, SiFlutter, SiKotlin, SiSupabase } from 'react-icons/si';
 
 function CategorizedSkills() {
   const { ref, isVisible } = useScrollAnimation();
@@ -51,7 +51,8 @@ function CategorizedSkills() {
       skills: [
         { name: "MySQL", level: "Avancé", progress: 80, icon: <SiMysql /> },
         { name: "MongoDB", level: "Intermédiaire", progress: 60, icon: <SiMongodb /> },
-        { name: "PostgreSQL", level: "Intermédiaire", progress: 55, icon: <FaDatabase /> }
+        { name: "PostgreSQL", level: "Intermédiaire", progress: 55, icon: <FaDatabase /> },
+        { name: "Supabase", level: "Intermédiaire", progress: 60, icon: <SiSupabase /> }
       ]
     },
     {

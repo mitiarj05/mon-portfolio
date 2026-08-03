@@ -200,7 +200,8 @@ export const skills = [
   { name: "C#", level: "Beginner", progress: 50, description: ".NET, SQL Server" },
   { name: "Spring Boot", level: "Intermediate", progress: 60, description: "API REST, Hibernate" },
   { name: "Flutter", level: "Intermediate", progress: 60, description: "Applications mobiles cross-platform" },
-  { name: "Kotlin", level: "Beginner", progress: 50, description: "Développement Android natif" }
+  { name: "Kotlin", level: "Beginner", progress: 50, description: "Développement Android natif" },
+  { name: "Supabase", level: "Intermediate", progress: 60, description: "BaaS, Auth, PostgreSQL managé" }
 ];
 
 export const contactInfo = {
