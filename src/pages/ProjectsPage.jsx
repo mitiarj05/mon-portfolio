@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaArrowRight, FaSearch, FaLaptopCode, FaChartLine, FaUsers, FaRocket, FaBriefcase, FaGraduationCap, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaArrowRight, FaSearch, FaLaptopCode, FaChartLine, FaUsers, FaRocket, FaBriefcase, FaGraduationCap, FaExternalLinkAlt, FaTrophy, FaHourglassHalf, FaCheckCircle } from 'react-icons/fa';
 import { projects as allProjects } from '../data/projects';
 import { getProjectIcon } from '../components/icons/ProjectIcons';
 
@@ -62,6 +62,8 @@ function ProjectsPage() {
         return { background: '#8b5cf6', icon: <FaBriefcase />, label: 'Stage' };
       case 'Collaboratif':
         return { background: '#f59e0b', icon: <FaUsers />, label: 'Collaboratif' };
+      case 'Compétition':
+        return { background: '#ec4899', icon: <FaTrophy />, label: 'Compétition' };
       default:
         return { background: '#10b981', icon: <FaGraduationCap />, label: 'Académique' };
     }
@@ -384,11 +386,9 @@ function ProjectsPage() {
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-muted)' }}>
                           <FaGithub size={12} /> <span>Public</span>
                         </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-muted)' }}>
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                          </svg>
-                          <span>Terminé</span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: project.status === 'En cours' ? '#f59e0b' : 'var(--text-muted)' }}>
+                          {project.status === 'En cours' ? <FaHourglassHalf size={12} /> : <FaCheckCircle size={12} />}
+                          <span>{project.status || 'Terminé'}</span>
                         </div>
                       </div>
 

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaGithub, FaArrowRight, FaCodeBranch, FaCheckCircle, FaExternalLinkAlt, FaBriefcase, FaGraduationCap, FaUsers, FaTrophy } from 'react-icons/fa';
+import { FaGithub, FaArrowRight, FaCodeBranch, FaCheckCircle, FaExternalLinkAlt, FaBriefcase, FaGraduationCap, FaUsers, FaTrophy, FaHourglassHalf } from 'react-icons/fa';
 import { useState } from 'react';
 import { getProjectIcon } from '../icons/ProjectIcons';
 
@@ -79,8 +79,8 @@ function ProjectCard({ project }) {
             <span>Public</span>
           </div>
           <div className="stat">
-            <FaCheckCircle />
-            <span>Terminé</span>
+            {project.status === 'En cours' ? <FaHourglassHalf /> : <FaCheckCircle />}
+            <span>{project.status || 'Terminé'}</span>
           </div>
         </div>
         

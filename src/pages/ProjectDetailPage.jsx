@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../data/projects';
-import { FaGithub, FaArrowLeft, FaCalendar, FaTag, FaExternalLinkAlt, FaCheckCircle, FaBriefcase, FaGraduationCap, FaTrophy } from 'react-icons/fa';
+import { FaGithub, FaArrowLeft, FaCalendar, FaTag, FaExternalLinkAlt, FaCheckCircle, FaBriefcase, FaGraduationCap, FaTrophy, FaHourglassHalf } from 'react-icons/fa';
 import { getProjectIcon } from '../components/icons/ProjectIcons';
 import { useState } from 'react';
 
@@ -131,8 +131,15 @@ function ProjectDetailPage() {
               <span style={{ background: 'rgba(99, 102, 241, 0.15)', padding: '0.2rem 0.8rem', borderRadius: '50px', fontSize: '0.8rem' }}>
                 <FaTag style={{ marginRight: '0.3rem' }} /> {project.category}
               </span>
-              <span style={{ background: 'rgba(16, 185, 129, 0.15)', padding: '0.2rem 0.8rem', borderRadius: '50px', fontSize: '0.8rem', color: '#10b981' }}>
-                <FaCheckCircle style={{ marginRight: '0.3rem' }} /> Terminé
+              <span style={{
+                background: project.status === 'En cours' ? 'rgba(245, 158, 11, 0.15)' : 'rgba(16, 185, 129, 0.15)',
+                padding: '0.2rem 0.8rem',
+                borderRadius: '50px',
+                fontSize: '0.8rem',
+                color: project.status === 'En cours' ? '#f59e0b' : '#10b981'
+              }}>
+                {project.status === 'En cours' ? <FaHourglassHalf style={{ marginRight: '0.3rem' }} /> : <FaCheckCircle style={{ marginRight: '0.3rem' }} />}
+                {project.status || 'Terminé'}
               </span>
             </div>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: '1.6' }}>

@@ -151,6 +151,7 @@ export const projects = [
     category: "Mobile",
     type: "Personnel",
     year: 2026,
+    status: "En cours",
     image: "/images/projects/mathsolver.png",
     features: [
       "Reconnaissance d'écriture manuscrite",
@@ -171,6 +172,7 @@ export const projects = [
     category: "Education",
     type: "Compétition",
     year: 2026,
+    status: "En cours",
     image: "/images/projects/campoignon.png",
     features: [
       "Partage et découverte de projets étudiants",
