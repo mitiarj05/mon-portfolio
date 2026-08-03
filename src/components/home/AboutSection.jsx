@@ -100,13 +100,14 @@ function AboutSection() {
               </a>
             </div>
             <div className="about-cv">
-              <button 
-                className="btn btn-primary" 
-                onClick={() => window.open('mailto:mitiarj05@gmail.com?subject=Demande%20de%20CV')}
+              <a
+                href="/cv/CV_RAJEMISON_Nantenaina_Mitia.pdf"
+                download="CV_RAJEMISON_Nantenaina_Mitia.pdf"
+                className="btn btn-primary"
                 style={{ width: '100%' }}
               >
                 📄 Télécharger mon CV
-              </button>
+              </a>
             </div>
           </div>
         </div>
