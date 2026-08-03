@@ -1,10 +1,10 @@
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { 
-  FaReact, FaNodeJs, FaDatabase, FaJava, FaJs, FaHtml5, 
+import {
+  FaReact, FaNodeJs, FaDatabase, FaJava, FaJs, FaHtml5,
   FaCss3Alt, FaGitAlt, FaCloud, FaCode, FaServer, FaDesktop,
-  FaWindows, FaPython, FaVuejs
+  FaWindows, FaPython, FaVuejs, FaAndroid
 } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiMysql, SiSpringboot, SiPhp } from 'react-icons/si';
+import { SiMongodb, SiExpress, SiMysql, SiSpringboot, SiPhp, SiFlutter, SiKotlin } from 'react-icons/si';
 
 function CategorizedSkills() {
   const { ref, isVisible } = useScrollAnimation();
@@ -32,6 +32,16 @@ function CategorizedSkills() {
         { name: "Python", level: "Intermédiaire", progress: 65, icon: <FaPython /> },
         { name: "PHP", level: "Intermédiaire", progress: 60, icon: <SiPhp /> },
         { name: "Spring Boot", level: "Débutant", progress: 45, icon: <SiSpringboot /> }
+      ]
+    },
+    {
+      name: "Mobile",
+      icon: <FaAndroid />,
+      color: "#22c55e",
+      skills: [
+        { name: "Flutter", level: "Intermédiaire", progress: 60, icon: <SiFlutter /> },
+        { name: "Kotlin", level: "Débutant", progress: 50, icon: <SiKotlin /> },
+        { name: "Java (Android)", level: "Intermédiaire", progress: 65, icon: <FaJava /> }
       ]
     },
     {
@@ -75,7 +85,7 @@ function CategorizedSkills() {
             Stack Technique
           </div>
           <h2>Mes <span className="gradient-text">compétences</span> par catégorie</h2>
-          <p>Frontend • Backend • Base de données • Outils • Desktop</p>
+          <p>Frontend • Backend • Mobile • Base de données • Outils • Desktop</p>
         </div>
 
         <div className="skills-categories-grid">

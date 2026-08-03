@@ -28,7 +28,7 @@ function ServicesSection() {
     {
       icon: <FaMobileAlt />,
       title: "Applications Mobile",
-      description: "Développement d'applications mobiles cross-platform avec React Native."
+      description: "Développement d'applications mobiles avec Flutter et Kotlin, du prototype au déploiement."
     },
     {
       icon: <FaDatabase />,

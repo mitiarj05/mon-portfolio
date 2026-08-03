@@ -139,6 +139,26 @@ export const projects = [
       "Formulaire de contact",
       "Déploiement sur Render"
     ]
+  },
+  {
+    id: 8,
+    title: "MathSolver - Application mobile de résolution d'équations",
+    shortDesc: "Application mobile de reconnaissance d'écriture manuscrite pour la résolution d'équations mathématiques.",
+    longDesc: "Application mobile développée avec Flutter permettant de photographier ou dessiner une équation manuscrite et d'en obtenir la résolution. Backend NestJS pour le traitement des requêtes et Supabase pour la gestion des données utilisateurs.",
+    tech: ["Flutter", "NestJS", "Supabase"],
+    github: "https://github.com/mitiarj05/campoignon",
+    demo: null,
+    category: "Mobile",
+    type: "Personnel",
+    year: 2026,
+    image: "/images/projects/mathsolver.png",
+    features: [
+      "Reconnaissance d'écriture manuscrite",
+      "Résolution d'équations mathématiques",
+      "Application mobile cross-platform (Flutter)",
+      "API backend avec NestJS",
+      "Authentification et stockage via Supabase"
+    ]
   }
 ];
 
@@ -156,7 +176,9 @@ export const skills = [
   { name: "Express", level: "Intermediate", progress: 60, description: "API, Middleware" },
   { name: "HTML/CSS", level: "Advanced", progress: 85, description: "Responsive, Flexbox" },
   { name: "C#", level: "Beginner", progress: 50, description: ".NET, SQL Server" },
-  { name: "Spring Boot", level: "Intermediate", progress: 60, description: "API REST, Hibernate" }
+  { name: "Spring Boot", level: "Intermediate", progress: 60, description: "API REST, Hibernate" },
+  { name: "Flutter", level: "Intermediate", progress: 60, description: "Applications mobiles cross-platform" },
+  { name: "Kotlin", level: "Beginner", progress: 50, description: "Développement Android natif" }
 ];
 
 export const contactInfo = {

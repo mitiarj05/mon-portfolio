@@ -18,12 +18,12 @@ function AboutSection() {
           <div className="about-text">
             <h3>RAJEMISON Nantenaina Mitia</h3>
             <p className="about-bio">
-              Étudiant en <strong>L3 Informatique</strong> à l'<strong>Ecole Nationale d'Informatique (ENI) de Fianarantsoa</strong>, 
-              je suis passionné par le développement web et logiciel depuis 3 ans.
+              Étudiant en <strong>L3 Informatique</strong> à l'<strong>Ecole Nationale d'Informatique (ENI) de Fianarantsoa</strong>,
+              je suis passionné par le développement d'applications web et mobiles depuis 3 ans.
             </p>
             <p>
-              Curieux et autodidacte, j'aime apprendre de nouvelles technologies et les mettre en pratique 
-              à travers des projets concrets. Mon objectif est de devenir un développeur Full Stack accompli.
+              Curieux et autodidacte, j'aime apprendre de nouvelles technologies et les mettre en pratique
+              à travers des projets concrets. Mon objectif est de devenir un développeur Web & Mobile accompli.
             </p>
             <div className="about-info-grid">
               <div className="about-info-item">

@@ -71,6 +71,13 @@ export const DatabaseIcon = () => (
   </svg>
 );
 
+export const MobileIcon = () => (
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor"/>
+    <line x1="11" y1="18" x2="13" y2="18" stroke="currentColor"/>
+  </svg>
+);
+
 // Icône par défaut
 export const DefaultIcon = () => (
   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -95,6 +102,8 @@ export const getProjectIcon = (category) => {
       return <PortfolioIcon />;
      case 'Automobile':
       return <AutomobileIcon />;
+    case 'Mobile':
+      return <MobileIcon />;
     default:
       return <DefaultIcon />;
   }
